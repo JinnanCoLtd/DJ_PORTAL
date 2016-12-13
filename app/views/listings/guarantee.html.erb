@@ -1,0 +1,46 @@
+<%= render 'partial/navbar' %>
+
+<div class="container">
+    <div class="col-md-3">
+        <!-- vertical-navbar -->
+        <%= render 'partial/verticalnavbar'%>
+    </div>
+    <div class="col-md-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="text-center">
+                    <span style="font-size:24px;">ギャランティの設定</span>
+                </div>
+            </div>
+
+            <div class="panel-body">            
+
+                <%= form_for @listing do |f| %>
+
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label>1プレイあたりの料金(円)</label>
+                          <div class="input-group">
+                            <%= f.text_field :guarantee, placeholder: "例: 30000", class: "form-control" %>
+                          </div>  
+                        </div>
+                      </div>
+                    </div>    
+
+                    負担を希望する経費<br><br>
+
+                    交通費：（例）実費<br>
+                    宿泊費：（例）実費<br>
+                    機材運搬費：（例）実費<br>
+                    イベント中の飲食費：（例）ホスト持ち<br>
+
+
+                    <div class="actions">
+                        <%= f.submit "更新", class: "btn btn-danger" %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

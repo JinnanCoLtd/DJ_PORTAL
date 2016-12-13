@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location: MyString
+  playing_years: 1
+  playing_per_year: 1
+  genre_main: MyString
+  genre_playable: MyString
+  main_equipments: MyString
+  listing_title: MyString
+  listing_content: MyText
+  guarantee: 1
+  active: false
+  user: one
+
+two:
+  location: MyString
+  playing_years: 1
+  playing_per_year: 1
+  genre_main: MyString
+  genre_playable: MyString
+  main_equipments: MyString
+  listing_title: MyString
+  listing_content: MyText
+  guarantee: 1
+  active: false
+  user: two

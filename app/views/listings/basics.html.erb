@@ -1,0 +1,78 @@
+<%= render 'partial/navbar' %>
+
+<div class="container">
+    <div class="col-md-3">
+        <!-- vertical-navbar -->
+        <%= render 'partial/verticalnavbar'%>
+    </div>
+    <div class="col-md-9">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+              <div class="text-center">
+                  <span style="font-size:24px;">基本データの編集</span>
+              </div>
+          </div>
+
+          <div class="panel-body">           
+              <!-- ここからフォーム -->
+					<%= form_for @listing do |f| %>
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+									<label>地域</label>
+									<%= f.select :location,  [["北海道","北海道"], ["青森県","青森県"], ["岩手県","岩手県"],["宮城県","宮城県"],["秋田県","秋田県"],["山形県","山形県"],["福島県","福島県"],["茨城県","茨城県"],["栃木県","栃木県"],["群馬県","群馬県"],["埼玉県","埼玉県"],["千葉県","千葉県"],["東京都","東京都"],["神奈川県","神奈川県"],["新潟県","新潟県"],["富山県","富山県"],["石川県","石川県"],["福井県","福井県"],["山梨県","山梨県"],["長野県","長野県"],["岐阜県","岐阜県"],["静岡県","静岡県"],["愛知県","愛知県"],["三重県","三重県"],["滋賀県","滋賀県"],["京都府","京都府"],["大阪府","大阪府"],["兵庫県","兵庫県"],["奈良県","奈良県"],["和歌山県","和歌山県"],["鳥取県","鳥取県"],["島根県","島根県"],["岡山県","岡山県"],["広島県","広島県"],["山口県","山口県"],["徳島県","徳島県"],["香川県","香川県"],["愛媛県","愛媛県"],["高知県","高知県"],["福岡県","福岡県"],["佐賀県","佐賀県"],["長崎県","長崎県"],["熊本県","熊本県"],["大分県","大分県"],["宮崎県","宮崎県"],["鹿児島県","鹿児島県"],["沖縄県","沖縄県"]], {prompt:"選択してください"}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
+								</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+									<label>DJ歴</label>
+									<%= f.select :playing_years, [["1年未満",1], ["1年以上3年未満",2], ["3年以上5年未満",3], ["5年以上10年未満",4], ["10年以上20年未満",5], ["20年以上",6]], {prompt:"選択してください"}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
+								</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+									<label>プレイ頻度</label>
+									<%= f.select :playing_per_year, [["週2回以上","週2回以上"], ["週1回以上","週1回以上"], ["月2回以上","月2回以上"], ["月1回程度","月1回程度"], ["月1回未満","月1回未満"]], {prompt:"選択してください"}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
+								</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+									<label>メインでプレイするジャンル（1つ）</label>
+									<!-- Beatportにほぼ準拠 -->
+									<%= f.select :genre_main, [["All Genre","All Genre"], ["Big Room","Big Room"], ["Breaks","Breaks"], ["Dance","Dance"], ["Deep House","Deep House"], ["Drum n Bass","Drum n Bass"], ["Dubstep","Dubstep"], ["Electro House","Electro House"], ["Electronica","Electronica"], ["Downtempo","Downtempo"], ["Funk","Funk"], ["R&B","R&B"], ["Future House","Future House"], ["Glitch Hop","Glitch Hop"], ["Hard Dance","Hard Dance"], ["Hardcore","Hardcore"], ["Hard Techno","Hard Techno"], ["Hardstyle","Hardstyle"], ["Hip Hop","Hip Hop"], ["House","House"], ["Indie Dance","Indie Dance"], ["Nu Disco","Nu Disco"], ["Minimal","Minimal"], ["Progressive House","Progressive House"], ["Psy Trance","Psy Trance"], ["Raggae/Dub","Raggae/Dub"], ["Tech House","Tech House"], ["Techno","Techno"], ["Trance","Trance"], ["Pops","Pops"], ["Anison","Anison"]], {prompt:"選択してください"}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
+								</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>プロフィール（実績など）</label>
+                        <%= f.text_area :listing_content, rows: 8, placeholder: "プロフィール", class: "form-control" %>
+                    </div>                            
+                </div>
+          	</div>
+						<hr>
+
+
+						<div class="actions">
+							<%= f.submit "更新", class: "btn btn-danger" %>
+						</div>
+					<% end -%>
+          </div>
+      </div>
+  </div>
+</div>
