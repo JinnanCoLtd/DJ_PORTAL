@@ -11,6 +11,8 @@
         <%= link_to "基本プロフィール", manage_listing_basics_path(@listing) %></li>
         <li class="<%= 'active' if controller?("listings") && action?("photographs") %>">
         <%= link_to "写真", manage_listing_photographs_path(@listing), data:{no_turbolink: true} %></li>
+        <li class="<%= 'active' if controller?("listings") && action?("address") %>">
+        <%= link_to "住所", manage_listing_address_path(@listing) %></li>
         <li class="<%= 'active' if controller?("listings") && action?("calender") %>">
         <%= link_to "カレンダー", manage_listing_calender_path(@listing) %></li>
         <li class="<%= 'active' if controller?("listings") && action?("guarantee") %>">

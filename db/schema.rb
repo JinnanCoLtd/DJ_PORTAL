@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206113325) do
+ActiveRecord::Schema.define(version: 20170219064041) do
 
   create_table "listings", force: :cascade do |t|
     t.string   "location"
-    t.integer  "playing_years"
-    t.integer  "playing_per_year"
+    t.string   "playing_years"
+    t.string   "playing_per_year"
     t.string   "genre_main"
     t.string   "genre_playable"
     t.string   "main_equipments"
@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(version: 20161206113325) do
     t.integer  "user_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.text     "address"
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
@@ -38,6 +41,20 @@ ActiveRecord::Schema.define(version: 20161206113325) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.index ["listing_id"], name: "index_photographs_on_listing_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "listing_id"
+    t.string   "references"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "price_pernight"
+    t.integer  "total_price"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.boolean  "self_booking"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -59,6 +76,15 @@ ActiveRecord::Schema.define(version: 20161206113325) do
     t.string   "name"
     t.string   "phone_number"
     t.string   "description"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "publishable_key"
+    t.string   "secret_key"
+    t.string   "stripe_user_id"
+    t.string   "currency"
+    t.string   "stripe_account_type"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

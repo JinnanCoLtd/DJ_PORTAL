@@ -30,7 +30,7 @@
 							<div class="col-md-12 select">
 								<div class="form-group">
 									<label>DJ歴</label>
-									<%= f.select :playing_years, [["1年未満",1], ["1年以上3年未満",2], ["3年以上5年未満",3], ["5年以上10年未満",4], ["10年以上20年未満",5], ["20年以上",6]], {prompt:"選択してください"}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
+									<%= f.select :playing_years, [["1年未満","1年未満"], ["1年以上3年未満","1年以上3年未満"], ["3年以上5年未満","3年以上5年未満"], ["5年以上10年未満","5年以上10年未満"], ["10年以上20年未満","10年以上20年未満"], ["20年以上","20年以上"]], {prompt:"選択してください"}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
 								</div>
 							</div>
 						</div>
@@ -58,13 +58,23 @@
 						<br>
 
 						<div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>プロフィール（実績など）</label>
-                        <%= f.text_area :listing_content, rows: 8, placeholder: "プロフィール", class: "form-control" %>
-                    </div>                            
-                </div>
-          	</div>
+			                <div class="col-md-12">
+			                    <div class="form-group">
+			                        <label>リスティングのタイトル</label>
+			                        <%= f.text_field :listing_title, placeholder: "渋谷を中心に週1〜2回プレイしています", class: "form-control" %>
+			                    </div>                            
+			                </div>
+			          	</div>
+						<r>
+
+						<div class="row">
+			                <div class="col-md-12">
+			                    <div class="form-group">
+			                        <label>プロフィール（実績など）</label>
+			                        <%= f.text_area :listing_content, rows: 8, placeholder: "プロフィール", class: "form-control" %>
+			                    </div>                            
+			                </div>
+			          	</div>
 						<hr>
 
 

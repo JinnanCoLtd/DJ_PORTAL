@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  listing: MyString
+  references: MyString
+  start_date: 2017-01-22 13:24:31
+  end_time: 2017-01-22 13:24:31
+  price_pernight: 1
+  total_price: 1
+
+two:
+  user: two
+  listing: MyString
+  references: MyString
+  start_date: 2017-01-22 13:24:31
+  end_time: 2017-01-22 13:24:31
+  price_pernight: 1
+  total_price: 1

@@ -16,5 +16,13 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+//= require jquery-ui/widgets/datepicker
 //= require toastr
 
+toastr.options = {
+	"onclick": null,
+	"showDuration": "100",
+	"hideDuration": "100",
+	"timeOut": "2000",
+	"extendedTimeOut": "100",
+}

@@ -1,13 +1,16 @@
 class ListingsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_listing, only: [:update, :basics, :photographs, :calender, :guarantee, :contact, :bankaccount, :publish]
-
+  before_action :set_listing, only: [:show, :update, :basics, :photographs, :address, :calender, :guarantee, :contact, :bankaccount, :publish]
+  before_action :access_deny, only:[:basics, :photographs, :address, :calender, :guarantee, :contact, :bankaccount, :publish]
 
   def index
+    @listings = current_user.listings
   end
 
   def show
+    @listing = Listing.find(params[:id])
+    @photographs = @listing.photographs
   end
 
   def new
@@ -40,6 +43,10 @@ class ListingsController < ApplicationController
     @photograph = Photograph.new
   end
 
+  def address
+
+  end
+
   def calender
   end
 
@@ -50,18 +57,27 @@ class ListingsController < ApplicationController
   end
 
   def bankaccount
+    @user = @listing.user
+    session[:listing_id] = @listing.id
   end
 
   def publish
+  end
+
+
+  private
+  def listing_params
+    params.require(:listing).permit(:location, :playing_years, :playing_per_year, :genre_main, :address, :listing_title, :listing_content, :guarantee, :active, :address)
   end
 
   def set_listing
     @listing = Listing.find(params[:id])
   end
 
-  private
-  def listing_params
-    params.require(:listing).permit(:location, :playing_years, :playing_per_year, :genre_main, :listing_content, :guarantee, :active)
+  def access_deny
+    if !(current_user == @listing.user)
+      redirect_to root_path, notice: "他人の編集ページにはアクセスできません"
+    end
   end
   
 end
